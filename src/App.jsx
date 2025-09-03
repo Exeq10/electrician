@@ -281,25 +281,28 @@ const [tutorial, setTutorial] = useState(false);
     <div className="min-h-screen p-4 md:p-8 bg-gray-50 text-gray-900">
       <div className="max-w-6xl mx-auto space-y-6">
         <header id="sistema" className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-          <div>
-            <h1 className="text-2xl md:text-3xl font-bold">Calculadora UTE – BT (viviendas/comercial liviano)</h1>
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
+            <img src="/VOlt.svg" alt="logo" className="w-[250px] h-[250px]  " />
+            <h1 className="text-2xl md:text-3xl font-bold">  Calculadora  – BT (viviendas/comercial liviano)</h1>
             <p className="text-sm text-gray-600">Cálculos orientativos según prácticas UTE/IEC. Ajustá parámetros para tu caso.</p>
           </div>
           
-          <div className="flex items-center gap-3">
-            <label className="text-sm">Sistema</label>
+          <div className="flex items-center gap-3 mt-4">
+            <label className="text-sm ">Sistema</label>
             <select value={system} onChange={e=>setSystem(e.target.value)} className="border rounded-xl px-3 py-2 bg-white">
               <option value="monofasico">Monofásico 220 V</option>
               <option value="trifasico">Trifásico 380/220 V</option>
             </select>
           </div>
               {/* Botón para tutorial */}
-      <button
+     <div className="flex items-center justify-center mt-4">
+       <button
         onClick={handleTutorial}
-        className="bg-blue-600 text-white rounded-xl px-3 py-2 hover:bg-blue-700 transition"
+        className="bg-blue-600 text-white rounded-xl px-3 py-2 w-50  hover:bg-blue-700 transition"
       >
         Ver tutorial
       </button>
+     </div>
         </header>
 
         {/* Parámetros globales */}
