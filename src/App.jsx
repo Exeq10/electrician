@@ -186,6 +186,16 @@ const [tutorial, setTutorial] = useState(false);
             align: "center",
           },
         },
+         {
+          element: "#actions",
+          popover: {
+            title: "🖨️ Exportar e imprimir",
+            description:
+              " Podés exportar los resultados a PDF o imprimirlos directamente desde la app para tener un respaldo físico.",
+            side: "bottom",
+            align: "center",
+          },
+        },
         {
           element: "#totales-resumen",
           popover: {
@@ -204,6 +214,16 @@ const [tutorial, setTutorial] = useState(false);
               "Aquí ves qué cable principal (fase y tierra) y qué interruptor general (IGA) necesitás. También el poder de corte mínimo del interruptor (Icu) según la Icc.",
             side: "bottom",
             align: "center",
+          },
+        },
+        {
+          element: "#actions",
+          popover: {
+            title: "🖨️ Exportar e imprimir",
+            description:
+              " Podés exportar los resultados a PDF o imprimirlos directamente desde la app para tener un respaldo físico.",
+            side: "top",
+            align: "left",
           },
         },
       ],
@@ -281,15 +301,15 @@ const [tutorial, setTutorial] = useState(false);
   return (
     <div className="min-h-screen p-4 md:p-8 bg-gray-50 text-gray-900">
       <div className="max-w-6xl mx-auto space-y-6">
-        <header id="sistema" className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <header  className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
             <img src="/VOlt.svg" alt="logo" className="w-[250px] h-[250px]  " />
             <h1 className="text-2xl md:text-3xl font-bold">  Calculadora  – BT (viviendas/comercial liviano)</h1>
             <p className="text-sm text-gray-600">Cálculos orientativos según prácticas UTE/IEC. Ajustá parámetros para tu caso.</p>
           </div>
           
-          <div className="flex items-center gap-3 mt-4">
-            <label className="text-sm ">Sistema</label>
+          <div className="flex items-center gap-3 mt-4 " id="sistema">
+            <label className="text-sm "  >Sistema</label>
             <select value={system} onChange={e=>setSystem(e.target.value)} className="border rounded-xl px-3 py-2 bg-white">
               <option value="monofasico">Monofásico 220 V</option>
               <option value="trifasico">Trifásico 380/220 V</option>
@@ -307,8 +327,8 @@ const [tutorial, setTutorial] = useState(false);
         </header>
 
         {/* Parámetros globales */}
-        <section id="parametros" className="grid md:grid-cols-2 gap-4">
-          <div className="bg-white rounded-2xl shadow p-4 space-y-3">
+        <section  className="grid md:grid-cols-2 gap-4">
+          <div id="parametros" className="bg-white rounded-2xl shadow p-4 space-y-3">
             <h2 className="font-semibold">Parámetros de cálculo</h2>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <label className="flex flex-col">Icc presunta en tablero (kA)
@@ -344,9 +364,9 @@ const [tutorial, setTutorial] = useState(false);
         </section>
 
         {/* Agregar manual */}
-        <section  id="custom" className="bg-white rounded-2xl shadow p-4 space-y-3">
+        <section  className="bg-white rounded-2xl shadow p-4 space-y-3">
           <h2 className="font-semibold">Agregar carga personalizada</h2>
-          <div className="grid md:grid-cols-6 gap-3 text-sm items-end">
+          <div   id="custom"className="grid md:grid-cols-6 gap-3 text-sm items-end">
             <label className="flex flex-col">Nombre
               <input value={custom.name} onChange={e=>setCustom({...custom, name:e.target.value})} className="border rounded-xl px-3 py-2"/>
             </label>
@@ -392,7 +412,7 @@ const [tutorial, setTutorial] = useState(false);
           </div>
         </section>
 
-<div className="flex gap-4">
+<div className="flex gap-4 " id="actions">
   <button className="py-2 px-3 border-1 rounded-md shadow-sm bg-green-500 text-white"  onClick={ exportarPDF}>Exportar PDF</button>
   <button className="py-2 px-3 border-1 rounded-md shadow-sm bg-blue-500 text-white"  onClick={imprimirResultados}>Imprimir</button>
 </div>
