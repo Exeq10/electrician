@@ -1,6 +1,7 @@
 import React, { useMemo, useState ,useEffect} from "react";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
+import { exportarPDF, imprimirResultados } from './utils/exportar.js';
 
 
 // Calculadora de instalaciones BT estilo UTE/IEC (simplificada)
@@ -391,6 +392,10 @@ const [tutorial, setTutorial] = useState(false);
           </div>
         </section>
 
+<div className="flex gap-4">
+  <button className="py-2 px-3 border-1 rounded-md shadow-sm bg-green-500 text-white"  onClick={ exportarPDF}>Exportar PDF</button>
+  <button className="py-2 px-3 border-1 rounded-md shadow-sm bg-blue-500 text-white"  onClick={imprimirResultados}>Imprimir</button>
+</div>
         {/* Resultados por circuito */}
         <section  id="tabla-resultados" className="bg-white rounded-2xl shadow p-4">
           <h2 className="font-semibold mb-3">Resultados por circuito</h2>
